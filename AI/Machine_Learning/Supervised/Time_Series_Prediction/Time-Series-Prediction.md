@@ -1,0 +1,1 @@
+ A special case of [[Regression]] where the data points are indexed in time order. Will be looking at the [[Supervised-Machine-Learning]] application but recently time series models have been explored intensively in the [[Unsupervised-Machine-Learning]] setup. LLMs like ChatGPT use this algorithm. 

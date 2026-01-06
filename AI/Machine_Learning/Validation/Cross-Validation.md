@@ -1,0 +1,3 @@
+If the data is limited we want to use as much of it as possible in training  but if the size of the validation is too small it can give a relatively noisy estimate of predictive performance. The solution is to do cross validation. 
+![[Pasted image 20251016163018.png]]
+N-fold validation can be applied to the entire training data to select the best performing model that you can develop. Then the best model can be tested on the test set. If data is very scarce you can make the number of folds equal to the number of data points which gives the leave-one-out-validation.

@@ -1,0 +1,3 @@
+Gradient Descent is an iterative optimization algorithm used to find the minimum of a differentiable function, often referred to as a cost function or loss function in [[Machine-Learning]]. Its primary goal is to minimize this function by iteratively adjusting parameters (e.g., weights and biases in a neural network) in the direction of the steepest descent.
+![[Pasted image 20251027162434.png]]
+Starting at a point take the path the results in the steepest slope or greates decrease in height until you reach a local minimum. If you start at a different point you may end up at a different local minimum.

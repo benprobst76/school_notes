@@ -1,0 +1,11 @@
+The hypothesis will then predict outputs from given inputs. Then we might define the hypothesis as $$h(x) = \theta_0 + \theta_1x_1+\theta_2x_2$$ where $x_1$ and $x_2$ are inputs.  Or to make more compact $$h(x)=\sum_{j=0}^2\theta_jx_j$$ where $x_0=1$, which is the same as the previous equation. And $$\theta=\begin{pmatrix}\theta_1\\\theta_2\\\theta_3\end{pmatrix}\space x=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}$$So $\theta$ becomes a three dimensional parameter and the features $x$ become s three dimensional feature vector. $\theta$ is called the parameters of the learning algorithm. $x$ denotes the inputs or features. We will also use $m$ as the number of training examples and $y$ as the output or the target variable. $(x,y)$ is the training example. $n$ is the number of features.
+
+The first step is the to chose $\theta$ such that $h(x)\approx y$, for the training examples. That is the hypothesis outputs the known outputs . So we want to minimize the difference: $$J(\theta)=\sum^m_{i=1}\frac{1}{2}(h(x^{(i)})-y^{(i)})^2$$
+Putting 1/2 makes the math simpler later when taking the derivative. We can use the [[Gradient Descent]] Algorithm. Keep changing $\theta$ to reduce $J(\theta)$ which we use as $$
+\theta_j:=\theta_j-\alpha\frac{\partial}{\partial\theta_j}J(\theta)$$
+where $\alpha$ is the learning rate. Usually the learning rate is chosen arbitrarily and then adjusted based on how fast or slow the radiant descent is updating.  The derivative of the function defines the direction of steepest descent. With each iteration of gradient descent the vales of $\theta$ are updating and the minimum is reached (in linear regression will always be the global minimum) and that results in the line of best fit. 
+
+![[Pasted image 20251022080001.png]]
+$$y(x_n)=w^T\phi(x_n)$$
+Specifies a line or hyperplane and $\phi(x_n)$ can be simply $x_n$(with bias absorbed) or some fixed pre-processing of $x_n$. $\phi(x_n)$ is also called basis functions. 
+This doesn't work well for larger datasets because you have to go through the entire dataset each time the parameter $\theta$ is updated. Instead you can do Stochastic Gradient Descent or Normal Equation.

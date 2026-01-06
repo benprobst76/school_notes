@@ -1,0 +1,14 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.inFolder("AI")
+        - '!file.name.startsWith("Pasted image")'
+        - '!file.links.containsAny("Pasted image")'
+    order:
+      - file.name
+      - file.links
+    sort:
+      - property: file.links
+        direction: ASC

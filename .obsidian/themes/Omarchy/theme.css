@@ -1,5 +1,5 @@
 /* Omarchy Theme for Obsidian */
-/* Generated on Mon Jan  5 03:40:44 PM EST 2026 from theme: matte-black */
+/* Generated on Wed Jan  7 08:30:20 PM EST 2026 from theme: unknown */
 /* Colors sorted by frequency, backgrounds by distance */
 
 .theme-dark, .theme-light {
@@ -24,17 +24,17 @@
   --text-selection-fg: #bebebe;
 
   /* 13-slot color system for remaining elements */
-  --text-title-h1: #eaeaea;
-  --text-title-h2: #b91c1c;
-  --text-title-h3: #8a8a8d;
+  --text-title-h1: #b91c1c;
+  --text-title-h2: #eaeaea;
+  --text-title-h3: #d35f5f;
   --text-title-h4: #333333;
   --text-title-h5: #ffc107;
   --text-title-h6: #ffc107;  /* Same as h5 */
-  --text-link: #d35f5f;
-  --markup-code: #ffffff;
-  --text-mark: #f59e0b;
-  --interactive-accent: #e68e0d;
-  --blockquote-border: #b90a0a;
+  --text-link: #ffffff;
+  --markup-code: #f59e0b;
+  --text-mark: #e68e0d;
+  --interactive-accent: #b90a0a;
+  --blockquote-border: #8a8a8d;
   --text-muted: #8a8a8d;  /* Use text-specific color for muted text */
   --text-faint: #8a8a8d;  /* Use text-specific color for faint text */
 
@@ -82,7 +82,7 @@
   /* Fonts */
   --font-interface-theme: "Liberation Sans";
   --font-text-theme: "Liberation Sans";
-  --font-monospace-theme: "JetBrainsMono Nerd Font";
+  --font-monospace-theme: "Adwaita Mono";
 }
 
 /* Headers */

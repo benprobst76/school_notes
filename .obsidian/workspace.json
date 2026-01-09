@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3a92b025054c1a97",
+        "id": "77f3e0ce455157f4",
         "type": "tabs",
         "children": [
           {
-            "id": "47fa0623fb5fb120",
+            "id": "5e9c3e33f52d0515",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": ".obsidian/themes/Omarchy/theme.css",
-                "bFile": ".obsidian/themes/Omarchy/theme.css",
-                "aRef": ""
+                "file": "Capstone Project System Architecture.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: theme.css  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "Capstone Project System Architecture"
             }
           }
         ]
@@ -191,6 +191,6 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "47fa0623fb5fb120",
+  "active": "5e9c3e33f52d0515",
   "lastOpenFiles": []
 }

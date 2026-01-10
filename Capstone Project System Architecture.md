@@ -32,3 +32,4 @@ Cloud -->|Push Notification<br/>Over Internet| Mobile Mobile -.->|Config Data<br
 
 %% Styling classDef sensor fill:`#e1f5ff`,stroke:`#0288d1`,stroke-width:2px classDef processing fill:`#fff3e0`,stroke:`#f57c00`,stroke-width:2px classDef ai fill:`#f3e5f5`,stroke:`#7b1fa2`,stroke-width:3px classDef network fill:`#e8f5e9`,stroke:`#388e3c`,stroke-width:2px classDef external fill:`#fce4ec`,stroke:`#c2185b`,stroke-width:2px
 ```
+#FC9A35

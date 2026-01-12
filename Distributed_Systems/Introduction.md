@@ -1,5 +1,3 @@
-# Introduction to Distributed Systems
-
 > If you can build your system on a single computer without building a distributed system, do it that way - Robert Morris (MIT)
 
 *   Distributed systems have a lot of added complexity.

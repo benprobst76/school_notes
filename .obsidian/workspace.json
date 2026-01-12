@@ -11,13 +11,32 @@
             "id": "5e9c3e33f52d0515",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Databases/Introduction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Introduction"
+            }
+          },
+          {
+            "id": "0eb4029fd6fdfeca",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Distributed_Systems/Cpp-Overview.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Cpp-Overview"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -49,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#DE8F0B",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,12 +89,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 248.5
   },
   "right": {
     "id": "7c76a6a8cf14bfb8",
@@ -174,7 +192,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 226.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,8 +206,31 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5e9c3e33f52d0515",
+  "active": "0eb4029fd6fdfeca",
   "lastOpenFiles": [
+    "Distributed_Systems/GEMINI.md",
+    "Distributed_Systems/Cpp-Overview.md",
+    "Distributed_Systems/Introduction.md",
+    "Databases/GEMINI.md",
+    "AI/GEMINI.md",
+    "Databases/Entity-Relationship-Modeling.md",
+    "Databases/Introduction.md",
+    "Databases/media/Pasted image 20260112084322.png",
+    "Databases/media/Pasted image 20260112084219.png",
+    "Databases/media/Pasted image 20260112084130.png",
+    "Databases/AGENTS.md",
+    "Databases/media/Pasted image 20260112081055.png",
+    "Databases/media",
+    "Excalidraw/Drawing 2025-10-27 15.50.30.excalidraw.md",
+    "Databases",
+    "Untitled.canvas",
+    "Untitled 1.canvas",
+    "2026-01-12.md",
+    "Untitled.base",
+    "conflict-files-obsidian-git.md",
+    "Performance_Analysis/Intro.md",
+    "Performance_Analysis",
+    "Distributed_Systems",
     "Capstone Project System Architecture.md"
   ]
 }

@@ -12,3 +12,10 @@ This directory serves as a repository for study notes and reference materials re
 
 ## Usage
 This content is intended for educational review and study. The markdown files capture key definitions and summaries, while the PDF serves as source material for deeper understanding.
+
+### Formatting
+Any math should be returned as latex that can be easily copy and pasted into a $$ $$
+block. When math spans multiple lines use the \begin{aligned} and \end{aligned} latex functions. Any code should be returned as a code block 
+```
+```
+Without any number lines. Notes created should be clear and explanatory.  When asked to "reformat" notes, rewrite them so that they are in proper markdown format and are optimized to be used in obsidian. Do not remove any details but  if needed, include extra details or examples for concepts if it helps makes the notes clearer and easier to understand. Do not include a line break after paragraphs, headers or sections. Create obsidian links to other files for references to other topics.

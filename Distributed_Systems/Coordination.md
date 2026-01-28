@@ -60,3 +60,120 @@ Vector clocks allow us to determine if two events are causally related or concur
 * **Pros:** They respect causality, which is vital for distributed debugging and consistency.
 * **Cons:** They do not capture causality from events outside the system (e.g., a user seeing an output on one machine and typing an input on another).
 * **Cons:** They can lead to "potential influence" overhead, where the system tracks causal links that don't actually exist, potentially impacting performance and scalability.
+## Mutual Exclusion  
+• Similar to the same problem on a single system  
+• Ensure that only one process accesses a shared resource, but now distributed  
+• Token Based  
+• Messages are used to transfer a token between the processes that access the shared resource  
+• Different tokens for different resources  
+• Process that has the token gets to enter the critical section, passes the token to next process when leaving the critical section  
+• Guarantees each process gets a turn  
+• What happens if the token is lost?
+#### Permission based approach  
+• Process wanting to access the shared resource needs permission from the other  
+processes.  
+#### Coordinator  
+• One process is elected as a coordinator for the shared resource.  
+• Other processes ask it before accessing the shared resource.  
+• Coordinator maintains a queue of requests and lets each process access the shared  
+resource in turn. (Can be a bottleneck) 
+• If coordinator fails, then a new coordinator must be elected
+### Distributed Algorithms - Lamport Clocks  
+• Each process needs to agree on the order of accessing the shared resource  
+• Each process maintains a request queue as well as a logical clock. The local queue is sorted by timestamp.  
+• Process adds an ENTER message with the timestamp and its process id into the local queue and sends that same message to the other processes., who add to their local queues 
+• When a process P receives an ENTER message from Q, it sends an timestamped ACK message (after incrementing its clock).  
+• P can enter when it has received a time stamp ACK from all other units, and its ENTER is at the front of the queue.  
+• When a process leaves a critical section, it removes ENTER from the queue and sends a RELEASE message to all processes  
+• All processes remove entry from their queue.
+![[Pasted image 20260127134002.png]]
+## Decentralized Mutual Exclusion  
+• Assume each resource is replicated N times, each replica has its own coordinator  
+• access requires a majority vote (m > N/2)  
+• Assume coordinators respond immediately to a request  
+• If they think the resource is free, then they say yes,  
+• If they have already said yes to another process they say no.  
+• If a coordinator crashes, it recovers quickly (but will have forgotten any votes).  
+• If a process is denied (gets less than m votes), it backs off for some random time and makes another attempt.  
+• utilization can drop for high demand resources (no process gets a majority vote)
+#### Robustness
+• p = ∆t/T is the probably a coordinator resets during interval ∆t, with a lifetime  
+of T 
+• The probability that k out of m coordinators reset at the same time  
+•  $P[k] = \pmatrix{m \\ k}p^k(1 − p)^{m−k}$
+• Correctness is violated when enough coordinators reset that the other  
+coordinators think it is ok to grant access to the resource.  
+• N - (m-f) >= m or f >= 2m -N  
+Table: 
+N m p Violation N m p Violation  
+8 5 3 sec/hour < 10 −5 8 5 30 sec/hour < 10 −3  
+8 6 3 sec/hour < 10 −11 8 6 30 sec/hour < 10 −7  
+16 9 3 sec/hour < 10 −4 16 9 30 sec/hour < 10 −2  
+16 12 3 sec/hour < 10 − 21 16 12 30 sec/hour < 10 −13  
+32 17 3 sec/hour < 10 −4 32 17 30 sec/hour < 10 −2  
+32 24 3 sec/hour < 10 −43 32 24 30 sec/hour < 10 −27
+
+  
+
+| Algorithm     | Messages per entry/exit           | Delay before entry  (in message times) |
+| ------------- | --------------------------------- | -------------------------------------- |
+| Centralized   | 3                                 | 2                                      |
+| Distributed   | 2(N − 1)                          | 2(N − 1)                               |
+| Decentralized | 2kN +(k − 1)N/2 + N, k = 1, 2,... | 2kN +(k − 1)N/2                        |
+
+### Example - Zookeeper  
+• Zookeeper is a set of building block routines for distributed systems. It has  
+facilities for locking, leader election and monitoring.  
+• Centralized server setup  
+• All client-server communication is nonblocking: a client immediately gets a  
+response  
+• ZooKeeper maintains a tree-based namespace, similar to a filesystem  
+• Clients can create, delete, or update nodes, as well as check existence.  
+• Notification mechanism for actions in the node space
+#### zookeeper locking protocol  
+• Create a lock  
+• create a node for that resource in the zookeeper namespace  
+• if the lock node already exists, subscribes to a notification to changes of  
+the node  
+• release a lock  
+• delete the node for the resource  
+• if a process is waiting, it will receive notification of the deletion.
+#### Race condition  
+• P1 creates a lock  
+• P2 attempts to create the lock, but it already exists  
+• Before P2 subscribes to a notification, but P1 deletes the lock  
+• P2 subscribes to changes.  
+• Zookeeper has a mechanism to deal with this particular condition.
+### Election Algorithms
+#### Coordinators  
+• Some algorithms require that a single process acts as a coordinator.  
+• How to select a coordinator  
+• Manual -> centralized system, but a single point of failure  
+• How to choose a coordinator dynamically  
+• If the coordinator fails, need to pick a replacement.
+- Each process has a unique identifier which is comparable (ordered)  
+• processes know the processes in the group for which a coordinator must  
+be elected  
+• Once an election starts, it concludes with all processes agreeing on who the  
+new coordinator is  
+• Once coordinator is known, messages to other members of the group from  
+outside the group will be forwarded to the coordinator
+#### Bully Algorithm  
+Choose the surviving process with the highest id  
+• When a process (Pk) notices that the coordinator is no longer alive, it starts an  
+election  
+• Pk sends election message to all processes with higher identifiers (e.g.  
+Pk+1...Pn  
+• If no one responds, then Pk is the highest id process still alive.  
+• If a higher id process answer, it takes over.  
+• If more than one higher id process gets the message, then they hold an  
+election.
+#### Zookeeper internal elections  
+Server group called an ensemble  
+• Ensemble looks like a single server, coordinated by a leader  
+• Other servers in the group are followers and act as up-to-date standby  
+• Each server has an identifier (id(s))  
+• Each server s has a monotonically increasing counter tx(s) of the last  
+transaction it handled  
+• Leader performs a transaction (e.g. add node to namespace) and sends a  
+copy of the transaction to followers to act on local copy of namespace.

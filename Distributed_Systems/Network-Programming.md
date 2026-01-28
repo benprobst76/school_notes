@@ -1,5 +1,3 @@
-# Network Programming
-
 ## Overview
 This section covers network programming using the **Linux/BSD/MacOS/iOS API**, which are all variations of the UNIX operating system.
 *   **Windows**: Uses WINSOCK, which is similar but differs in implementation details. WSL (Windows Subsystem for Linux) can be used to access the Linux API on Windows.
@@ -92,7 +90,7 @@ TCP provides a **reliable, bidirectional stream** (e.g., Web, SSH, Video).
 
 **Data Transfer**:
 Both sides use `read()` and `write()` on the connected socket.
-*   *Note*: Servers often create a new thread or process to handle the accepted connection. See [[Cpp-Overview]] for threading details.
+*   *Note*: Servers often create a new thread or process to handle the accepted connection. See [[Cpp-Overview#Threads and Concurrency|Cpp Threads]] for threading details.
 
 ## UDP (User Datagram Protocol)
 UDP provides **unreliable, message-based** communication (e.g., DNS, NTP, RTPS).
@@ -100,7 +98,7 @@ UDP provides **unreliable, message-based** communication (e.g., DNS, NTP, RTPS).
 *   Supports multicasting.
 
 ### Sending and Receiving
-*   **`sendto()`**: specificies destination address for every message.
+*   **`sendto()`**: specifies destination address for every message.
     ```c
     size_t sendto(int sockfd, const void *buf, size_t len, int flags, 
                   const struct sockaddr *dest_addr, socklen_t addrlen);
@@ -112,7 +110,7 @@ UDP provides **unreliable, message-based** communication (e.g., DNS, NTP, RTPS).
     ```
 
 ### Timeouts
-Socket options can control behavior, such as receive timeouts.
+Socket options can control behaviour, such as receive timeouts.
 ```c
 struct timeval tv;
 tv.tv_sec = 1; 

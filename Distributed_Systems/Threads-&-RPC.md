@@ -1,5 +1,3 @@
-# Threads and Remote Procedure Calls (RPC)
-
 ## Threads
 Distributed systems are inherently concurrent and parallel.
 *   In the absence of a lab environment with multiple physical machines, threads within a single process are used to approximate distributed nodes.
@@ -24,18 +22,15 @@ int main() {
 ```
 
 ## Remote Procedure Call (RPC)
-
 ### Motivation
 Programming directly with sockets (as seen in [[Network-Programming]]) involves many low-level details:
 *   Requires detailed boilerplate code.
 *   Prone to bugs and security issues.
 *   Portability and maintenance challenges.
-
 **Goal**: A higher-level abstraction that makes an interaction with a remote server look like a local procedure call.
 
 ### General Concept
 The fundamental technique underlying many distributed systems. The goal is to allow code to be split across computers without changing the semantic logic significantly.
-
 #### Local Function Call (Monolithic)
 ```c
 // client.c  
@@ -90,10 +85,9 @@ private:
 *   **pImpl Pattern**: The `kvImpl` class can have two implementations: one for the client (stub that sends messages) and one for the server (actual logic).
 
 ## Design & Implementation Issues
-
-### Parameters & Marshalling
+### Parameters & Marshaling
 *   **Heterogeneity**: Client and server may use different languages (C++, Java, Rust) or data representations.
-*   **Marshalling**: The process of converting parameters and memory structures into a sequence of bytes for transmission.
+*   **Marshaling**: The process of converting parameters and memory structures into a sequence of bytes for transmission.
     *   Complex structures (trees, graphs) must be serialized.
     *   **Endianness**: Must agree on byte order (Big Endian vs Little Endian).
 *   **Stubs**: Responsible for transforming data between machine-dependent representations and the wire format.
@@ -108,7 +102,6 @@ Since client and server do not share an address space:
 
 ### Binding (Discovery)
 How does the client find the server (IP and Port)?
-
 1.  **Static Configuration**:
     *   Hardcoded or config files.
     *   *Example*: **NFS** uses `/etc/fstab` to list server addresses and mount points.
@@ -130,26 +123,22 @@ Things go wrong in distributed systems that don't happen locally:
 
 ## RPC Semantics
 Defines how many times a procedure is executed in the face of failures.
-
 ### 1. At Least Once
 *   **Behavior**: Operation is executed 1 or more times.
 *   **Implementation**: Client resends message until it gets a confirmation.
 *   **Use Case**: Idempotent operations (e.g., reading data, "set x = 5").
 *   **Risk**: Non-idempotent operations (e.g., "transfer $5") may happen multiple times.
-
 ### 2. At Most Once
 *   **Behavior**: Operation is executed 0 or 1 time.
 *   **Implementation**:
     *   Messages have unique IDs.
     *   Server tracks IDs to prevent re-execution of duplicates.
 *   **Risk**: If the server crashes or fails over, the duplicate history might be lost.
-
 ### 3. Exactly Once
 *   **Behavior**: The ideal. Guaranteed single execution.
 *   **Implementation**: Extremely difficult; requires atomic tracking of requests and responses and durable state.
 
 ## Reliability Issues
-
 ### Lost Reply Messages
 If the client gets no answer, it doesn't know if:
 1.  Request was lost (Server did nothing).
@@ -168,11 +157,9 @@ If a client crashes after invoking an RPC, the server might still be processing 
     *   **Timeouts**: Operations are killed if they run too long.
 
 ## Synchronization & Transport
-
 ### Async vs. Sync
 *   **Synchronous**: Client blocks until result returns (looks like local call).
 *   **Asynchronous**: Client continues, notified via **callback** or **promise/await** when result is ready.
-
 ### Transport Protocol
 *   **UDP**:
     *   Used by Sun RPC (NFS).
@@ -182,7 +169,6 @@ If a client crashes after invoking an RPC, the server might still be processing 
     *   Used by gRPC.
     *   Reliable, handles stream control.
     *   Higher overhead for setup/teardown.
-
 ### Authentication
 *   **IP Check**: Trust based on source IP (weak, e.g., NFS).
 *   **API Key**: Simple token.

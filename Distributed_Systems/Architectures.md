@@ -1,4 +1,3 @@
-# Architectural Styles
 
 ## Basic Idea
 - A style is defined in terms of:
@@ -10,20 +9,16 @@
 ## Layered Architecture
 ![[Pasted image 20260119201625.png]]
 ![[Pasted image 20260119201632.png]]
-
 ### Application Layers
 Traditionally 3 layers:
 - **Application interface layer**: Interface to the user (e.g., browser), or an API for other applications to use (Google Maps API).
 - **Processing Layer**: Functions of our application - can be complex and involve multiple processes and functions.
 - **Data layer**: Persistent storage of data used by the processing layer. Used in many distributed systems that provide some functionality using traditional databases (e.g., Queen's SOLUS).
-
 ![[Pasted image 20260119201646.png]]
-
 ### Objects Style
 - Components are objects connected through procedure calls.
 - Objects may be on different machines, methods involved across a network (CORBA/Java RMI/AJAX).
 - Objects encapsulate data and offer methods on the data, hiding the internal representation.
-
 ## RESTful Architectures
 Resource-based architecture. Collection of resources, managed by components.
 - Resources may be added, removed, retrieved, or modified by remote applications.
@@ -31,7 +26,6 @@ Resource-based architecture. Collection of resources, managed by components.
 - All services use the same interface.
 - Messages are self-described.
 - **Stateless**: Once a service executes the operation on behalf of a client component, the service forgets everything about the client component.
-
 ### Operations
 Derived from HTTP protocol:
 - `POST`: Create a new resource.
@@ -40,16 +34,13 @@ Derived from HTTP protocol:
 - `PUT`/`PATCH`: Modify a resource.
 - Typically run over HTTP.
 - **Catch**: Have to do a lot with parameters.
-
 ### Blog Service Example
 Assume one blog per username (if you want two blogs you need two usernames).
-
 **Resources:**
 - **Author Profile**: Only one, cannot be created, only modified.
 - **Article**: Main resource, multiple articles per blog.
 - **Topics**: Identifiers attached to an article to aid in searching for related articles.
 - **Comments**: Other users can attach comments to articles.
-
 **API Examples:**
 - `GET https://myblog.server.ca/user/articles`
     - Responds with a list of ids.
@@ -66,14 +57,12 @@ Assume one blog per username (if you want two blogs you need two usernames).
 So far the architectures require that the client/sender know (or find out) the identity of the server or resource.
 - Invoke a procedure or method, access a resource.
 - *What about a looser organization of components that cooperate to solve some problem?*
-
 ## Shared Data Space
 - Components communicate and cooperate through a shared data space.
 - **Tuples** are a record of values, not all the same type, can be an arbitrary number of values.
 - Components can store any type of tuple into the shared data space.
 - Retrieve and/or delete a tuple using pattern matching template (values for some of the members of the tuple).
 - Processes that want to exchange information agree on the number and type of arguments for the data they want to exchange, tuple space is automatic.
-
 ### Linda Tuple Space
 - `out(t)`: Add tuple to the tuple space. Calling twice with the same tuple gives duplicates (called a multiset).
 - `in(t)`: Remove a tuple matching template `t` and return to process (destructive read).
@@ -84,7 +73,6 @@ So far the architectures require that the client/sender know (or find out) the i
 - Components can publish events, and subscribe to events.
 - An event published by one component can be received by multiple subscribers.
 - A subscriber can receive events from multiple publishers.
-
 ### How are events matched and Data sent?
 - Some set of attributes for each event.
     - **Topic based subscription** ($attribute = value$)
@@ -97,7 +85,7 @@ So far the architectures require that the client/sender know (or find out) the i
 
 ### RTPS (Real-Time Publish-Subscribe)
 - Topics are a triple of `(name, data-type, quality of service)`.
-- Data type is an arbitrary record, expressed in IDL (see [[Marshalling-&-Serialization|Marshalling]]).
+- Data type is an arbitrary record, expressed in IDL (see [[Marshaling-&-Serialization|Marshalling]]).
 - IDL compiler generates reader and write for the type (uses CDR).
 - Publishers publish topics by name.
 - Subscribers subscribe to topics by name.

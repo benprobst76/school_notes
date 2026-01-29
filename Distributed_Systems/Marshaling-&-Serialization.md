@@ -1,7 +1,7 @@
-Marshalling and serialization are critical components of any network protocol. They involve converting complex data structures into a sequence of bytes that can be transmitted across a network and reconstructed at the destination. This is especially important in the context of [[Threads-&-RPC]] and general [[Network-Programming]].
+Marshaling and serialization are critical components of any network protocol. They involve converting complex data structures into a sequence of bytes that can be transmitted across a network and reconstructed at the destination. This is especially important in the context of [[Threads-&-RPC]] and general [[Network-Programming]].
 ### Core Terminology
 * **Serialization**: The process of converting a single data type or object into a serial representation (a byte stream).
-* **Marshalling**: The process of serializing multiple parameters or complex data structures into a single message representation.
+* **Marshaling**: The process of serializing multiple parameters or complex data structures into a single message representation.
 ### Considerations in Serialization
 When choosing a serialization method, several factors must be considered:
 * **Text vs. Binary**:
@@ -30,10 +30,10 @@ public:
 };
 ```
 ![[Pasted image 20260115123748.png]]
-Fields are copied directly: `memcpy(&buffer[4], &theVar.y, sizeof(int32_t));`. This requires careful management of buffer offsets and awareness of [[Network-Programming#Byte-Ordering|Endianness]].
+Fields are copied directly: `memcpy(&buffer[4], &theVar.y, sizeof(int32_t));`. This requires careful management of buffer offsets and awareness of [[Network-Programming#Byte Order|Endianess]].
 ### Abstract Syntax Notation One (ASN.1)
 ASN.1 is an older but widely used standard for describing message layouts via a Domain Specific Language (DSL). It is common in telecommunications and infrastructure protocols.
-* **Usage**: SNMP, LDAP, Kerberos, X.509 certificates, and 4G/5G cellular signalling.
+* **Usage**: SNMP, LDAP, [[User-Authentication#Kerberos Authentication|Kerberos]], X.509 certificates, and 4G/5G cellular signalling.
 * **Type System**: Includes primitives like `INTEGER`, `BOOLEAN`, `BIT STRING`, `OCTET STRING`, `REAL`, and various string types (`UTF8String`, `IA5String`).
 * **Constructors**: Uses `SEQUENCE` for structures and `SEQUENCE OF` for arrays.
 ```asn1
@@ -89,7 +89,7 @@ int main() {
 #### Advanced Protobuf Features
 * **Enums**: Must have a value mapping to 0 for the default/uninitialized state.
 * **User Defined Types**: Messages can be nested or imported from other files.
-* **Mutable Fields**: Complex fields (like strings or sub-messages) can be modified directly via `mutable_fieldname()`, which returns a raw pointer. Note that Protobuf does not use [[Cpp-Overview#Smart-Pointers|Smart Pointers]].
+* **Mutable Fields**: Complex fields (like strings or sub-messages) can be modified directly via `mutable_fieldname()`, which returns a raw pointer. Note that Protobuf does not use [[Cpp-Overview#Dynamic Allocation and Smart Pointers|Smart Pointers]].
 * **Optional**: The `optional` keyword allows checking if a field is set via `has_fieldname()`.
 * **Repeated**: Used for lists/arrays. Uses `google::protobuf::RepeatedField<T>`.
 * **Oneof**: Indicates a choice where only one field will be serialized at a time.

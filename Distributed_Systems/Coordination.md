@@ -70,8 +70,7 @@ Vector clocks allow us to determine if two events are causally related or concur
 • Guarantees each process gets a turn  
 • What happens if the token is lost?
 #### Permission based approach  
-• Process wanting to access the shared resource needs permission from the other  
-processes.  
+• Process wanting to access the shared resource needs permission from the other processes.  
 #### Coordinator  
 • One process is elected as a coordinator for the shared resource.  
 • Other processes ask it before accessing the shared resource.  

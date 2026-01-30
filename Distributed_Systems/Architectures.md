@@ -4,7 +4,7 @@
     - The way that components are connected to each other
     - The data exchanged between components
     - How the component and connectors are configured into a system
-- **Connector**: A mechanism or technique that mediates communication or coordination between components (e.g., [[Threads-&-RPC|RPC]], Messages, Streaming).
+- **Connector**: A mechanism or technique that mediates communication or coordination between components (e.g., [[Threads-&-RPC|RPC]], Messages, Streaming). 
 
 ## Layered Architecture
 ![[Pasted image 20260119201625.png]]

@@ -1,5 +1,5 @@
 # C++ Overview for Distributed Systems
-C++ was created by Bjarne Stroustrup in 1979 as "C with Classes," evolving into a multi-paradigm language fundamental for [[Introduction|Distributed Systems]] due to its performance and resource control.
+C++ was created by Bjarne Stroustrup in 1979 as "C with Classes," evolving into a multi-paradigm language fundamental for [[Distributed_Systems/Introduction|Distributed Systems]] due to its performance and resource control.
 ## File Structure
 Organizing code is critical in large distributed systems.
 - **Header Files (`.hpp` / `.h`)**: Contain class declarations, function prototypes, and templates. Must use include guards to prevent multiple inclusion.

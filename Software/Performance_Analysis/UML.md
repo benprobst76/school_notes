@@ -43,7 +43,7 @@
 
 ### Usage in SPE
 *   **Stereotypes and Tagged Values** are used to capture information about the software execution environment (e.g., processor type, processor speed, network speed).
-*   **Constraints** are used to specify [[Intro|performance]] objectives (e.g., response time or throughput).
+*   **Constraints** are used to specify [[Software-Performance-Engineering|performance]] objectives (e.g., response time or throughput).
 
 ## Class Diagrams
 *   Classes are composed of three components: a name, attributes, and operations.

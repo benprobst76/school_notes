@@ -74,7 +74,7 @@ The core concepts are illustrated using an ATM system:
 *   **Evaluation:** Initial analysis (best-case, no contention) might show a result like ~29s response time against a 30s limit, indicating the design is barely acceptable and needs optimization.
 ## SPE in the Unified Software Process
 SPE should be integrated into the software development lifecycle (e.g., Unified Process) to ensure it is systematic rather than ad-hoc.
-*   **Risk-Driven:** Address [[Intro|Performance]] risks early (Inception/Elaboration phases).
+*   **Risk-Driven:** Address [[Software-Performance-Engineering|Performance]] risks early (Inception/Elaboration phases).
 *   **Iterative:** Models start with bounds (Best/Worst) and refine to point estimates.
 *   **Feasibility:** Early iterations may focus on prototyping critical components specifically to validate performance assumptions.
 ## Performance Solutions

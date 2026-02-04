@@ -9,7 +9,7 @@ tags:
 # Software Execution Model
 
 *   Construct early in the development process to ensure that the chosen software architecture can achieve the required performance objectives.
-*   Capture essential [[Intro#Core Definitions|performance]] characteristics of the software.
+*   Capture essential [[Software-Performance-Engineering#Core Definitions|performance]] characteristics of the software.
 *   Provide a static analysis of the mean, best, and worst-case response time.
 *   Characterize the resource requirements of the proposed software alone, in the absence of other workloads, multiple users, or delays due to contention for resources.
 

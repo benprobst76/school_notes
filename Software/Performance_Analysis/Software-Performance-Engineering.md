@@ -7,7 +7,7 @@ tags:
 ---
 
 # Introduction to Software Performance
-
+> Over its lifetime, the cost of a software product is determined more by how well it achieves its objectives for quality attributes such as performance, reliability/availability or maintainability than by its functionality.
 ## Core Definitions
 
 ### What is Performance?

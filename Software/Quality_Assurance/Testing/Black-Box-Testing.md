@@ -5,7 +5,7 @@ Types of black box testing:
 - Acceptance testing  
 - Usability testing
 ## Black Box Methods
-Methods are chosen based on the requirements, specification or sometimes design documents. In black box the tester does not hade knowledge of the internal code so testing is performed based on the systems externally observable behaviors and inputs. This can be an advantage, to create test cases independently and parallelly to the development of the software. 
+Methods are chosen based on the requirements, specification or sometimes design documents. In black box the tester does not have knowledge of the internal code so testing is performed based on the systems externally observable behaviors and inputs. This can be an advantage, to create test cases independently and parallelly to the development of the software. 
 ### Functional Specifications
 There are formal (mathematical) specifications and there are informal (natural language) specifications. Functional specifications need to provide at least three kinds of information:
 - the corresponding intended actions

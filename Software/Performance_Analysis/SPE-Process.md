@@ -15,7 +15,7 @@ SPE involves deriving performance models directly from the software design:
 
 ## SPE Process for Object-Oriented Systems
 For OO systems, SPE adapts general techniques to the development process and artifacts like [[UML]]. The process is **use-case driven**, focusing on scenarios that describe workloads significant to performance.
-
+![[SPE-Ch2.pdf#page=2&rect=130,66,463,526&color=yellow|SPE-Ch2, p.2]]
 ### The 9-Step SPE Process
 1.  **Assess Performance Risk:** Determine the level of effort needed. High risk (critical mission, high user load) requires significant SPE effort.
 2.  **Identify Critical Use Cases:** Select use cases critical to system operation or user-perceived responsiveness. This is risk-driven (e.g., "Where is failure most likely or most damaging?").
@@ -63,7 +63,8 @@ Traditionally, performance is addressed late:
 SPE shifts the focus to early-stage modeling using design artifacts.
 ![[Pasted image 20260119144242.png]]
 
-## Case Study: ATM System
+## Case Study: ATM System > ([[SPE-Ch2.pdf#page=6&annotation=1591R|SPE-Ch2, p.6]])
+
 The core concepts are illustrated using an ATM system:
 *   **Critical Use Case:** `CustomerTransaction` (Withdraw, Deposit, Balance).
 *   **Modeling:** A [[UML]] Sequence Diagram (handling loops and alternatives) is translated into an **Execution Graph**.
@@ -83,3 +84,8 @@ SPE is not just measurement; it drives the creation of performant software throu
 *   **Performance Patterns:** proven best practices for scalability.
 *   **Performance Antipatterns:** Common mistakes ("The God Class", "Excessive Round Trips") and their refactorings.
 *   **Implementation Solutions:** Tuning code or SQL when architectural changes are no longer an option.
+
+> [!PDF|234, 82, 82] [[SPE-Best-Practices.pdf#page=8&annotation=102R|SPE-Best-Practices, p.8]]
+> > Collecting this data over time will provide a useful basis for constructing a business case for SPE for future projects.
+> 
+> If SPE is missed in the beginning is it too late?

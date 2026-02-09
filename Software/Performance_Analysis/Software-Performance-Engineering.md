@@ -12,7 +12,6 @@ tags:
 
 ### What is Performance?
 **Performance** refers to **response time** or **throughput** as seen by the users.
-
 *   **Response Time:** The time required to respond to a request.
     *   *Example:* The time required for an ATM withdraw transaction to complete.
 *   **Throughput:** The number of requests that can be processed in a specified time interval.

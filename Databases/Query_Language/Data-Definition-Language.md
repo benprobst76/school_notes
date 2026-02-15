@@ -43,7 +43,7 @@ CREATE DATABASE myDatabaseName;
 - **Storage:** `CHAR(10)` stores "cat" using 10 bytes (3 characters + 7 spaces). `VARCHAR(10)` stores "cat" using only 3 characters + overhead.
 ---
 ## Schema Diagram for University Database
-![[./media/Pasted image 20260202100615.png]]
+![[Pasted image 20260202100615.png]]
 ---
 ## Creating and Modifying Tables
 ### Basic Create Table Statement

@@ -1,4 +1,3 @@
-# Election Algorithms
 Election algorithms are a critical component of [[Synchronization]] and [[Coordination/Synchronization|Coordination]] in distributed systems. They are used to elect a single process to act as a coordinator or leader for a specific task or resource management.
 ## Coordinators
 Some [[Architectures|distributed architectures]] require a single process to act as a coordinator to manage resources, synchronize activities, or handle specific requests.
@@ -50,11 +49,11 @@ Raft is a consensus algorithm designed for fault-tolerant services, prioritizing
 ### Selecting a New Leader
 - **Election Trigger**: If a follower $s_1$ does not receive a heartbeat or transaction within a specific **timeout** period, it transitions to the **candidate** state.
 - **Voting**:
-	- The candidate $s_1$ increments the term $t$ to $$ t + 1 $$ and votes for itself.
+	- The candidate $s_1$ increments the term $t$ to $t +  1$ and votes for itself.
 	- It sends `REQUEST_VOTE` messages to other servers.
 	- A follower $s_2$ votes for $s_1$ if it hasn't already voted in term $t+1$ and $s_1$'s log is at least as up-to-date as its own.
 - **Outcome**: The candidate that receives a majority of votes becomes the leader for the remainder of the term.
-- **Deadlocks**: To prevent "split votes" where no candidate gets a majority, Raft uses **randomized election timeouts**. If a term ends without a leader, a candidate will timeout, increment the term to $$ t + 2 $$ and start a new election.
+- **Deadlocks**: To prevent "split votes" where no candidate gets a majority, Raft uses **randomized election timeouts**. If a term ends without a leader, a candidate will timeout, increment the term to $t + 2$ and start a new election.
 ![[Pasted image 20260202105421.png]]
 ![[Pasted image 20260202105436.png]]
 ## Paxos

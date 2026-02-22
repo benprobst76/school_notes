@@ -127,16 +127,16 @@ LDAP is a combined database and structured naming system, commonly used in **Mic
 *   **Attributes**: Typed and can be multi-valued.
 
 #### Common LDAP Attribute Abbreviations
-| Abbr. | Attribute Name | Example |
-| :--- | :--- | :--- |
-| **C** | Country | `CA` |
-| **ST** | State/Province | `Ontario` |
-| **L** | Locality | `Kingston` |
-| **O** | Organization | `Queens University` |
-| **OU** | Organizational Unit | `Electrical and Computer Engineering` |
-| **CN** | Common Name | `Thomas Dean` |
-| **UID** | User ID | `trd` |
-| **DC** | Domain Component | `queensu`, `ca` |
+| Abbr.   | Attribute Name      | Example                               |
+| :------ | :------------------ | :------------------------------------ |
+| **C**   | Country             | `CA`                                  |
+| **ST**  | State/Province      | `Ontario`                             |
+| **L**   | Locality            | `Kingston`                            |
+| **O**   | Organization        | `Queens University`                   |
+| **OU**  | Organizational Unit | `Electrical and Computer Engineering` |
+| **CN**  | Common Name         | `Thomas Dean`                         |
+| **UID** | User ID             | `trd`                                 |
+| **DC**  | Domain Component    | `queensu`, `ca`                       |
 
 ### Directory Information Base (DIB) and Tree (DIT)
 *   **DIB**: The collection of all entries in the service.

@@ -14,7 +14,7 @@ Textbook distinguishes between decentralized and distributed:
 *   Differs in how they respond to partial failures in the systems.
 
 Not as distinct as the textbook suggests:
-*   Some components of decentralized systems are d[[Network-Programming]]istributed systems. Example: Air Traffic Control.
+*   Some components of decentralized systems are distributed systems. Example: Air Traffic Control.
 *   Older ATC (1970s) were single computer systems.
 *   Flight plan management system.
 *   Collision prediction system.

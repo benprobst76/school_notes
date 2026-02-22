@@ -69,30 +69,28 @@ Let:
 
 The probability that exactly $k$ out of $m$ coordinators reset during the interval follows a binomial distribution:
 $$ P[k] = \binom{m}{k}p^k(1 - p)^{m-k} $$
-Correctness is violated if enough coordinators reset such that they grant permission to a second process while the first is still in the critical section. This occurs if the number of surviving coordinators plus the number of reset coordinators is sufficient to form a majority for a new request.
-The condition for safety against $f$ failures is:
-$$ f < 2m - N $$
-
+Correctness is violated if enough coordinators reset such that they grant permission to a second process while the first is still in the critical section. This occurs if the number of surviving coordinators plus the number of reset coordinators is sufficient to form a majority for a new request.  
+The condition for safety against $f$ failures is: $f < 2m - N$
 **Probability of Violation (Table)**
 
-| N | m | p (reset rate) | Violation Probability |
-| :--- | :--- | :--- | :--- |
-| 8 | 5 | 3 sec/hour | $< 10^{-5}$ |
-| 8 | 6 | 3 sec/hour | $< 10^{-11}$ |
-| 16 | 9 | 3 sec/hour | $< 10^{-4}$ |
-| 16 | 12 | 3 sec/hour | $< 10^{-21}$ |
-| 32 | 17 | 3 sec/hour | $< 10^{-4}$ |
-| 32 | 24 | 3 sec/hour | $< 10^{-43}$ |
+| N   | m   | p (reset rate) | Violation Probability |
+| :-- | :-- | :------------- | :-------------------- |
+| 8   | 5   | 3 sec/hour     | $< 10^{-5}$           |
+| 8   | 6   | 3 sec/hour     | $< 10^{-11}$          |
+| 16  | 9   | 3 sec/hour     | $< 10^{-4}$           |
+| 16  | 12  | 3 sec/hour     | $< 10^{-21}$          |
+| 32  | 17  | 3 sec/hour     | $< 10^{-4}$           |
+| 32  | 24  | 3 sec/hour     | $< 10^{-43}$          |
 
 ### Algorithm Comparison
 
-| Algorithm | Messages per Entry/Exit | Delay before Entry (in message times) |
-| :--- | :--- | :--- |
-| **Centralized** | 3 (Request, Grant, Release) | 2 |
-| **Distributed** | $2(N - 1)$ | $2(N - 1)$ |
-| **Decentralized** | $2mk + m$, varies by retries $k$ | $2mk + m$ |
+| Algorithm         | Messages per Entry/Exit          | Delay before Entry (in message times) |
+| :---------------- | :------------------------------- | :------------------------------------ |
+| **Centralized**   | 3 (Request, Grant, Release)      | 2                                     |
+| **Distributed**   | $2(N - 1)$                       | $2(N - 1)$                            |
+| **Decentralized** | $2mk + m$, varies by retries $k$ | $2mk + m$                             |
 
-## Case Study: ZooKeeper
+## Case Study: [[Election-Algorithms#Zookeeper Internal Elections|Zookeeper]]
 ZooKeeper is a distributed coordination service that provides primitives for distributed applications, including locking, leader election, and configuration management.
 *   **Architecture**: Centralized server cluster (ensemble).
 *   **Performance**: Clients connect to any server; reads are fast (local), writes require consensus.

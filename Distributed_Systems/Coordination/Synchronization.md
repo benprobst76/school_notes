@@ -18,7 +18,7 @@ $$ \begin{aligned} \theta &= T_3 + \frac{\delta T_{req} + \delta T_{resp}}{2} - 
 #### Network Time Protocol (NTP)
 Defined in **RFC 5905**, NTP is designed to synchronize many machines across a network. It achieves worldwide accuracy in the range of 1–50 ms by collecting multiple $(\theta, \delta)$ pairs and choosing the offset $\theta$ corresponding to the minimal delay $\delta$. NTP organizes computers into **strata**:
 * **Stratum 1:** Servers directly connected to a UTC receiver or atomic clock.
-* **Stratum 2:** Servers that synchronize with Stratum 1 servers.
+* **Stratum 2:** Servers that synchronize with Stratum 1 servers.          
 * **Stratum $n$:** Servers synchronize with Stratum $n-1$. Higher stratum numbers (further from the source) adjust their time to match lower stratum servers.
 ## Logical Clocks
 Leslie Lamport observed that many distributed coordination tasks do not require absolute "real time," but rather a consistent **global order of discrete events**. This is often easier to achieve than physical clock synchronization.
@@ -27,7 +27,7 @@ The relation $a \to b$ signifies that event $a$ happened before event $b$. For e
 * **Irreflexive:** $a \not\to a$.
 * **Asymmetric:** If $a \to b$, then $b \not\to a$.
 * **Transitive:** If $a \to b$ and $b \to c$, then $a \to c$.
-Note that if two events $a$ and $c$ have no causal relationship, their order is undefined (concurrency).
+Note that if two events $a$ and $c$ have no causal relationship, their order is undefined           concurrency).
 ### Lamport Clock Protocol
 To capture causality, we attach a timestamp $C(e)$ to each event $e$ such that:
 1. If $a \to b$ within a single process, then $C(a) < C(b)$.

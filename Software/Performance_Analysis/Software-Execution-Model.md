@@ -64,7 +64,7 @@ An execution graph is constructed for each performance scenario.
     *   Send the user a response to show the results of the response.
     *   Retrieve the emails.
     *   Sort the emails.
-    *   Display the emails the user.
+    *   Display the emails to the user.
 *   The server:
     *   Authenticate users.
     *   Send emails to the email client.

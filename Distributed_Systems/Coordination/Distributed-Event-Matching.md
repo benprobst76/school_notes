@@ -27,7 +27,7 @@ To scale, work is divided across multiple servers dynamically.
 *   For topic-based matching, hashes of topic names are typically used to select rendezvous servers.
 
 ## Distributed Matching Strategies
-Matching can be distributed across multiple servers called **brokers**, which are organized into an [[Architectures#Overlay-Networks|overlay network]].
+Matching can be distributed across multiple servers called **brokers**, which are organized into an overlay network.
 ### Flooding
 1.  **Flood Subscriptions**: Subscriptions are broadcast to all brokers. Every broker stores every subscription. When a broker receives a notification, it forwards it to all matching local subscribers.
 ![[Pasted image 20260213190025.png]]

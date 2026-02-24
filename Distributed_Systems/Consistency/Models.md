@@ -1,22 +1,3 @@
-# Consistency and Replication
-## Replication
-Replication is a fundamental technique used in distributed systems to improve availability and performance.
-### Why Replicate?
-- **Improve Reliability**: By maintaining multiple copies of data, the system can continue to operate even if one server crashes (e.g., DNS primary and secondary servers). This relates to [[Introduction#Reliability|Dependability and Fault Tolerance]].
-- **Performance**: Placing copies of data closer to clients reduces latency. Additionally, multiple replicas help prevent a single server from being overwhelmed by too many client requests, improving [[Introduction#Scalability|Scalability]].
-- **Problem: Consistency**: The primary challenge with replication is keeping the replicas synchronized.
-- **Local Caches**: A client's local cache might become out-of-date compared to the server version.
-- **Update Propagation**: When data is updated, changes must be propagated between servers.
-- **Trade-off**: There is a spectrum between **Strong Consistency** and **Weak Consistency**. Implementing consistency often requires complex protocols and impacts performance.
-## Distributed Storage
-Implementing distributed storage is inherently difficult due to conflicting goals.
-### Why is it Hard?
-- **Performance Optimization**: Splitting data across multiple servers (sharding) improves performance but complicates data management. See [[Architectures]] for more on system organization.
-- **Fault Tolerance**: To handle the loss of servers, data must be replicated.
-- **The Consistency Cycle**: Replication leads to potential inconsistency. Ensuring consistency requires extra work and bandwidth, which results in a performance penalty.
-### Data Replication for Scalability
-According to Robert Morris, distributed data is a key abstraction. A simple storage interface that handles distribution and replication is incredibly useful, as many other distributed system components assume such a system already exists.
-## Consistency Models
 A **Consistency Model** acts as a contract between a distributed data store and its clients, defining the expected results of read and write operations.
 ### Main Issue: Conflicting Operations
 The core problem is ensuring that all conflicting operations are executed in the same order across all replicas.
@@ -27,7 +8,7 @@ The core problem is ensuring that all conflicting operations are executed in the
 The system behaves as if it were a single server, even though it is distributed.
 ![[Pasted image 20260210134620.png]]
 #### Naive Replication
-In a simple approach, clients write to all replicas, and readers read from any single replica. However, without proper coordination (like [[Coordination/Synchronization]]), this can easily lead to inconsistencies.
+In a simple approach, clients write to all replicas, and readers read from any single replica. However, without proper coordination (like [[Synchronization]]), this can easily lead to inconsistencies.
 ![[Pasted image 20260210134717.png]]
 ### Sequential Consistency
 The result of any execution is the same as if the operations of all processes were executed in some sequential order, and the operations of each individual process appear in this sequence in the order specified by its program.

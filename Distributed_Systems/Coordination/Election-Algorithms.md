@@ -19,7 +19,7 @@ The Bully Algorithm selects the surviving process with the highest identifier as
 	- If a process with a higher ID responds, it takes over the election process, and $P_k$'s role in initiating that specific election ends.
 	- If multiple higher-ID processes receive the message, they hold their own election among themselves.
 ## Zookeeper Internal Elections
-Zookeeper uses a group of servers called an **ensemble** to provide high availability and fault tolerance.
+[[Mutual-Exclusion#Case Study Election-Algorithms Zookeeper Internal Elections Zookeeper|Zookeeper]] uses a group of servers called an **ensemble** to provide high availability and fault tolerance.
 - **Roles**:
 	- **Leader**: Coordinates the ensemble and handles all write requests.
 	- **Followers**: Act as up-to-date standbys, processing read requests and participating in the leader election.

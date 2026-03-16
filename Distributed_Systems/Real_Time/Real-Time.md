@@ -42,28 +42,6 @@ System performance is influenced by two main distributions:
 	- Does the value decrease before or after the deadline?
 	- Hard real-time has a value distribution that becomes extremely negative outside the target window.
 
-## System Architectures
-### Event-Driven Systems (Reactive)
-- Responds to asynchronous external events.
-- **Examples**: Pacemakers, elevators, aircraft flight controls, spark delivery based on cylinder position.
-
-### Time-Driven Systems
-- Operates on a fixed time loop, sampling inputs and generating outputs at synchronous intervals.
-- **Examples**: Irrigation systems, automated pet feeders.
-
-### Mixed Systems
-- Combines both approaches.
-- **Examples**: 
-	- **Traffic Lights**: Usually time-based but triggered by sensors.
-	- **Video Games**: Internal gameplay loops (time-driven) vs. user input (event-driven).
-
-## Middleware Responsibilities
-Middleware in real-time systems handles:
-- **Clock Synchronization**: Ensuring all nodes agree on the current time.
-- **Distributed Scheduling**: Managing task execution across multiple systems.
-- **Dynamic Load Balancing**: Moving tasks between systems to prevent overflows.
-- **Real-Time Communication**: Ensuring deterministic data delivery (e.g., [[Data-Distribution-Service]]).
-
 ---
 **Related Topics**:
 - [[Real-Time-Operating-System]]

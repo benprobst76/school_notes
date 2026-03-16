@@ -20,7 +20,7 @@ Replication is a fundamental technique used in distributed systems to improve av
 Implementing distributed storage is inherently difficult due to conflicting goals.
 
 ### Why is it Hard?
-- **Performance Optimization**: Splitting data across multiple servers (sharding) improves performance but complicates data management. See [[Architectures]] for more on system organization.
+- **Performance Optimization**: Splitting data across multiple servers (sharding) improves performance but complicates data management. See [[System-Architectures]] for more on system organization.
 - **Fault Tolerance**: To handle the loss of servers, data must be replicated.
 - **The Consistency Cycle**: Replication leads to potential inconsistency. Ensuring consistency requires extra work and bandwidth, which results in a performance penalty.
 

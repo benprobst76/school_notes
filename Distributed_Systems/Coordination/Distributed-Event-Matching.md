@@ -62,7 +62,7 @@ An event matching both would be routed from $Broker 1 \to Router 1 \to Router 3$
 ### Logical Location
 Physical proximity does not always reflect network costs or topology.
 *   Example: Two computers in adjacent houses might be on different ISPs (e.g., Cogeco vs. Bell). Traffic between them might route through a distant city (Kingston $\to$ Toronto $\to$ Kingston) rather than directly.
-*   Logical location is critical for optimizing [[Architectures#Overlay-Networks|Overlay Networks]].
+*   Logical location is critical for optimizing [[System-Architectures#Overlay-Networks|Overlay Networks]].
 
 ### Content Delivery Networks (CDN)
 CDNs like Netflix use location to optimize delivery:

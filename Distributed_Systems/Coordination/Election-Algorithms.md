@@ -1,6 +1,6 @@
 Election algorithms are a critical component of [[Synchronization]] and [[Coordination/Synchronization|Coordination]] in distributed systems. They are used to elect a single process to act as a coordinator or leader for a specific task or resource management.
 ## Coordinators
-Some [[Architectures|distributed architectures]] require a single process to act as a coordinator to manage resources, synchronize activities, or handle specific requests.
+Some [[System-Architectures|distributed architectures]] require a single process to act as a coordinator to manage resources, synchronize activities, or handle specific requests.
 - **Selection Methods**:
 	- **Manual**: Selecting a coordinator manually results in a centralized system, which introduces a single point of failure.
 	- **Dynamic**: Choosing a coordinator dynamically allows the system to recover if the current coordinator fails.

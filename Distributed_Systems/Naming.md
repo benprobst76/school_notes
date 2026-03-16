@@ -1,7 +1,7 @@
 Names are essential in computer systems for identifying resources. A name can refer to a file (an inode on a device), a shared mutex, or various entities within a distributed system.
 
 ## Distributed Naming
-In a distributed system, names are spread across multiple nodes and can refer to remote files, locks, devices, processes, or [[Architectures#Overlay-Networks|overlay networks]].
+In a distributed system, names are spread across multiple nodes and can refer to remote files, locks, devices, processes, or [[System-Architectures#Overlay-Networks|overlay networks]].
 *   **Location Transparency**: Names may include a location (e.g., `https://192.168.0.1/login`) or hide it entirely to provide [[Introduction#Transparency|location transparency]].
 *   **Network Names**: Examples include DNS names like `www.google.ca`.
 

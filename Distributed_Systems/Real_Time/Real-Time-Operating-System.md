@@ -4,10 +4,11 @@ tags:
   - distributed-systems
   - real-time
   - operating-systems
-  - rtos
+aliases:
+  - RTOS
 ---
 # Real-Time Operating Systems (RTOS)
-An RTOS is a specialized operating system designed to handle real-time applications by providing deterministic response times and efficient scheduling of tasks.
+A RTOS is a specialized operating system designed to handle real-time applications by providing deterministic response times and efficient scheduling of tasks.
 
 ## Common RTOS Examples
 - **FreeRTOS**:
@@ -44,28 +45,9 @@ RTOS schedulers use these attributes to manage task execution:
 > [!warning] Time Overflow
 > A time overflow occurs when a process finishes after its deadline. In hard real-time systems, this is a critical failure.
 
-## Scheduling Strategies
-### Feasibility
-A **feasible schedule** is an assignment of time slots such that no task experiences a time overflow.
-
-### Static vs. Dynamic Scheduling
-- **Static Scheduling (Offline)**:
-	- Pre-allocated time slots generated before the system starts.
-	- Common in safety-critical systems (e.g., automotive).
-	- Ensures no resource contention but is less flexible.
-- **Dynamic Scheduling**:
-	- Calculated at runtime.
-	- More flexible and adaptable to changing conditions.
-	- Common in higher-level command and control systems.
-
-### Priority-Based Scheduling
-Most RTOS implementations use priorities:
-- **Fixed (Static) Priorities**: Set at design time.
-- **Dynamic Priorities**: Adjusted by the scheduler during execution.
-- **Preemptive Scheduling**: Allows a high-priority task (e.g., sporadic event) to interrupt a low-priority running task.
-
 ---
 **Related Topics**:
 - [[Real-Time]]
 - [[Data-Distribution-Service]]
 - [[RAFT]]
+- [[Scheduling]]

@@ -41,7 +41,7 @@ Not as distinct as the textbook suggests:
 *   **Safety**: Minimize impact if the system fails.
 *   **Recoverability**
 *   **Maintainability**
-*   **Security ([[Network-Security#CIA Triad|CIA]])**
+*   **Security ([[CIA-Triad|CIA]])**
 
 ## Fault Tolerance
 *   A single computer is relatively fault tolerant.

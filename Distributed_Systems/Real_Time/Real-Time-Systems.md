@@ -4,6 +4,9 @@ tags:
   - distributed-systems
   - real-time
   - systems-design
+Assessments:
+  - Quiz-3
+Week: 9
 ---
 # Introduction to Real-Time Systems
 Real-time systems are those whose correctness depends not only on the logical result of the computation but also on the **time at which the result is produced**.
@@ -41,9 +44,17 @@ System performance is influenced by two main distributions:
 2. **Variation in Result Value**:
 	- Does the value decrease before or after the deadline?
 	- Hard real-time has a value distribution that becomes extremely negative outside the target window.
+## Distributed Real Time
+There are two types.
+### Event Driven Systems
+- Reactive system responds to asynchronous external events
+- Spark delivery is dependent in part on the position of the cylinder  
+- Pacemakers, automatic doors, elevators, aircraft flight control  
+### Time Driven Systems  
+- Time loop that samples synchronous inputs and generates synchronous outputs.  
+- Irrigation systems, timed food dispensing systems for pets  
+### Mixed  
+- Traffic Lights (time based, but also can be triggered by traffic sensors)  
+- Video games (internal game play loop for world and NPC, event driven for user input)
 
----
-**Related Topics**:
-- [[Real-Time-Operating-System]]
-- [[Data-Distribution-Service]]
-- [[RAFT]]
+The [[Middleware]] is often responsible; handling clock synchronization, distributed scheduling dynamic load balancing and real-time communication

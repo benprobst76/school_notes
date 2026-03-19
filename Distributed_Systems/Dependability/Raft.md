@@ -1,11 +1,14 @@
 ---
-title: RAFT Consensus Algorithm
+title: Raft Consensus Algorithm
 tags:
   - distributed-systems
   - consensus
   - fault-tolerance
+Assessments:
+  - Quiz-3
+Week: 8
 ---
-# RAFT Consensus Algorithm
+# Raft Consensus Algorithm
 Consensus involves reaching agreement on a single data value among a group of distributed processes or systems, even in the presence of failures. In a fault-tolerant process group, each non-faulty component must execute the same updates in the same order as every other non-faulty component.
 
 ## Overview
@@ -21,7 +24,8 @@ Raft is widely used in modern distributed systems:
 ### State-Based Replication
 The system is modeled as a **Replicated State Machine**. Commands are applied to a replica state (e.g., a Key-Value store) in a specific order to ensure all replicas remain consistent.
 - **Problem: Split Brain**: In a two-server system, if a network partition occurs, both might proceed independently, leading to inconsistency.
-- **Solution: Majority Vote**: Operations require a majority of *all* servers (Quorum) to proceed. With an odd number of servers (e.g., 3), a minority cannot form a majority, preventing divergent states.
+- **Solution: Majority Vote**: Operations require a majority of *all* servers ([[Quorum]]) to proceed. With an odd number of servers (e.g., 3), a minority cannot form a majority, preventing divergent states.
+- ![[Pasted image 20260318111854.png]]
 
 ## Server Architecture
 A Raft server consists of:
@@ -41,7 +45,7 @@ At any given time, a server is in one of three states:
 ### Raft Terms
 Terms act as a logical clock in Raft.
 - Terms are periods of arbitrary length, numbered with consecutive integers.
-- Each term begins with an **Election**.
+- Each term begins with an **[[Election-Algorithms#Raft Elections|election]]**.
 - There is at most one leader per term.
 - If a server's current term is smaller than another's, it updates its term and reverts to Follower state.
 
@@ -80,7 +84,20 @@ Raft ensures safety through several key properties:
 - **Leader Completeness**: If a log entry is committed in a given term, it will be present in the logs of all future leaders.
 - **State Machine Safety**: If a server has applied an entry at a given index, no other server will ever apply a different operation for that same index.
 
+## Raft Failures
+A follower crashes  
+- one fewer followers to vote; must catch up once it restarts  
+The leader crashes  
+- one of the follower's election timer expires, starts a new term and a new election  
+Network fails splitting the group  
+- Minority group (S1,S2) start an election, but cannot achieve majority vote for a new leader  
+- Must catch up when network is restored.
 ## Log Replication and Safety
+- A follower crashes and then recovers, then log must be brought up to date.
+- The leader continues to retry indefinitely  
+- Operations are idempotent, since they are adding the operation to a particular index in the log.  
+- If the entry is already in the log, then the follower will just acknowledge the request.  
+- However if a server has crashed, but not all logs are consistent, then it's more complicated
 ### RPC Details
 #### RequestVote RPC
 - **Arguments**: `term`, `candidateId`, `lastLogIndex`, `lastLogTerm`.
@@ -109,6 +126,29 @@ As logs grow, they consume space and increase replay time after a crash.
 | `log[]` | Persistent | Log entries |
 | `commitIndex` | Volatile | Index of highest committed entry |
 | `lastApplied` | Volatile | Index of highest entry applied to state machine |
+**All Servers**  
+- If commitIndex > lastApplied, apply the entries to the state machine  
+- if RPC request or response contains a term > currentTerm, then date to term and become a follower
+**Followers**  
+- Respond to RPCs from candidates and leaders  
+- If election timeout without an AppendEntry RPC from current leader, or granting vote to candidate → covert to candidate
+**Candidates**  
+- On conversion to candidate, start election, increment current vote term. vote for self, reset election time, send RequestVote to all servers  
+- If majority received become leader  
+- If AppendEntry RPC received from new leader (i.e. current term number) then become follower 
+- If election timeout elapses (no successful election) then start new elect
+**Leaders**  
+- On election send empty AppendEntry RPC (heartbeat); repeat during idle periods (heartbeat timer < election timer)  
+- On command received from client
+	- append entry to log, respond after entry applied to state machine  
+	- if lastLogIndex > next Index for a follower, send AppendEntry to that follower  
+	- if successful, update nextindex and match index for the follower  
+	- If failed, decrement nextIndex for that follower and retry  
+- If there exists N such that
+	- N > commitIndex (represents entries that have not been committed)  
+	- log[N].term == currentTerm (the entry at N is from the current term)  
+	- a majority of matchIndex[i] >=N (a majority of followers have replied yes)  
+	- update commitIndex to N (will be sent in next appendLog entry so that followers will commit)
 
 ## Operations
 ### Write Requests

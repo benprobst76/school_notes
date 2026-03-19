@@ -1,7 +1,10 @@
 .obsidian/
 .DS_Store
+copilot/
 
 # Ignore Smart Environment folder
 .smart-env
 /.obsidian/plugins/obsidian-git/data.json
 /.obsidian/community-plugins.json
+
+/copilot/

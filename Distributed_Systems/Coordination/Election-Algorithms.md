@@ -38,7 +38,7 @@ The Ring Algorithm assumes processes are organized in a logical ring overlay net
 - **Concurrency**: Multiple processes may start elections simultaneously, resulting in multiple message chains; however, they will all converge on the same highest ID.
 ![[Pasted image 20260202105153.png]]
 ## Raft Elections
-Raft is a consensus algorithm designed for fault-tolerant services, prioritizing understandability over the complexity of Paxos.
+[[Raft]] is a consensus algorithm designed for fault-tolerant services, prioritizing understandability over the complexity of Paxos.
 - **Configuration**: Requires an odd number of servers (typically 3 or 5) to achieve a majority (quorum).
 - **Server States**:
 	- **Follower**: Initial state; responds to requests from leaders and candidates.
@@ -62,4 +62,4 @@ Paxos is the foundational consensus algorithm that Raft was designed to simplify
 - **Implementations**:
 	- **etcd**: Uses Raft for distributed name resolution in Kubernetes.
 	- **Other Raft Users**: Hazelcast, MongoDB, Neo4j, RabbitMQ, ScyllaDB, Splunk.
-- **Further Reading**: Paxos and its variants will be discussed in more detail later in the term regarding [[Introduction|Fault Tolerance]].
+- **Further Reading**: Paxos and its variants will be discussed in more detail later in the term regarding [[Fault-Tolerance]].

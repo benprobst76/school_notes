@@ -45,7 +45,7 @@ A system is considered **secure** if its resources are used and accessed only as
 
 The **CIA Triad** (Confidentiality, Integrity, Availability) is a foundational model for information security, identifying the three core principles that should be protected.
 
-*   Refer to [[Network-Security#CIA Triad|CIA Triad]] for a comprehensive overview of the CIA Triad.
+*   Refer to [[CIA-Triad]] for a comprehensive overview of the CIA Triad.
 
 **Impact of Loss on Each Principle:**
 

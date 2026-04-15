@@ -3,11 +3,15 @@ title: Fault Tolerance and Dependability
 tags:
   - distributed-systems
   - fault-tolerance
-  - dependability
-  - reliability
+  - consensus
+Assessments:
+  - Quiz-3
+Week: 8
 ---
 # Fault Tolerance and Dependability
 In distributed systems, where components are numerous and failures are inevitable, fault tolerance is the ability of a system to continue providing services even when one or more of its components fail.
+
+A single computer is relatively fault tolerant. When you multiply components like machines, disks, network switches and cables, it is a low probability all of them fail but a high probability some of them fail.  
 
 ## Core Concepts of Dependability
 Dependability is a broad term encompassing several key attributes:
@@ -16,7 +20,7 @@ Dependability is a broad term encompassing several key attributes:
 - **Safety**: If the system fails, the impact is minimized (e.g., failing into a safe state).
 - **Recoverability**: The ability to restore the system to a functional state after a failure.
 - **Maintainability**: How easily the system can be repaired or updated.
-- **Security**: Maintaining Confidentiality, Integrity, and Availability (CIA).
+- **Security**: Maintaining Confidentiality, Integrity, and Availability ([[CIA-Triad|CIA]]).
 
 ## Faults, Errors, and Failures
 It is important to distinguish between the cause, the state, and the result of a problem:
@@ -27,7 +31,7 @@ It is important to distinguish between the cause, the state, and the result of a
 ### Types of Faults
 - **Transient**: Occurs once and then disappears (e.g., a bit flip from cosmic radiation).
 - **Intermittent**: Occurs semi-regularly (e.g., a loose cable or heat-related issue).
-- **Permanent**: Lasts until the component is repaired or replaced.
+- **Permanent**: Lasts until it is fixed
 
 ## Handling Faults
 - **Fault Prevention**: Techniques to stop faults from occurring (e.g., Test-Driven Development, formal verification).
@@ -72,22 +76,16 @@ Process resilience is achieved by organizing multiple identical processes into *
 
 ### Group Structures
 - **Flat Groups**: All members are peers. No single point of failure, but decision-making (voting) is complex.
-- **Hierarchical Groups**: A coordinator manages workers. Easier to manage, but the loss of the coordinator requires an election.
+- **Hierarchical Groups**: A coordinator manages workers. Easier to manage, but the loss of the coordinator requires an [[Election-Algorithms|election]]. (e.g. [[Raft]])
 
 ### $k$-Fault Tolerance
 A group is $k$-fault tolerant if it can survive $k$ concurrent failures. The required group size depends on the failure model:
 - **Halting Failures**: Requires **$k+1$** members. (If one survives, it is guaranteed to be correct).
 - **Arbitrary Failures**: Requires **$2k+1$** members. (Needed to reach a majority vote on the correct result).
 
-## Consensus and Replication
+## Consensus and [[Replication]]
 In a fault-tolerant group, all non-faulty members must execute the same updates in the same order. This requires reaching **Consensus**.
-- **State-Based Replicas**: Replicas maintain consistent state (e.g., a Key-Value store) by applying the same operations.
+- **State-Based Replicas**: Replicas maintain consistent state (e.g., a Key-Value store, [[Google-File-System|GFS]]) by applying the same operations.
 - **Algorithms**:
-	- **Paxos**: A powerful but complex consensus algorithm.
-	- [[RAFT]]: A more modern, understandable consensus algorithm used in tools like `etcd`, `Neo4j`, and `MongoDB`.
-
----
-**Related Topics**:
-- [[RAFT]]
-- [[Introduction]]
-- [[Real-Time]]
+	- **Paxos**: A powerful but complex state based replication system.
+	- [[Raft]]: A more modern, understandable consensus algorithm used in tools like `etcd`, `Neo4j`, and `MongoDB`.

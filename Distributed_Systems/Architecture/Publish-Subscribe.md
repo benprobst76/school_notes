@@ -12,7 +12,7 @@
     - Data is sent directly to the subscriber.
 - Choice between **persistent** (message buffered to allow late subscribers to get historical data) and **transient** (no subscriber means that the event is lost).
 
-### RTPS ([[Real-Time]] Publish-Subscribe)
+### RTPS ([[Real-Time-Systems]] Publish-Subscribe)
 - Topics are a triple of `(name, data-type, quality of service)`.
 - Data type is an arbitrary record, expressed in IDL (see [[Marshaling-&-Serialization|Marshalling]]).
 - IDL compiler generates reader and write for the type (uses CDR).

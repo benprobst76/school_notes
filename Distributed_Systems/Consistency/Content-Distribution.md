@@ -4,6 +4,9 @@ tags:
   - consistency
   - replication
   - leases
+Week: 7
+Assessments:
+  - Quiz-3
 ---
 # Content Distribution: Replica Update Management
 When a replicated resource is updated, the system must decide how to keep other copies consistent. The choice depends on available bandwidth and the read-to-write ratios at each replica.

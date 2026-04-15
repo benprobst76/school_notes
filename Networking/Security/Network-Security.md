@@ -14,12 +14,3 @@ Network Security Protocols
 
 - Relies on cryptographic algorithms to provide key distribution, identity authentication to secure e-commerce. Defines the methodology to secure network data from any attacks.
 - Built on cryptography and executed on the computer network with the objective to maintain confidentiality, integrity and availability.
-### CIA Triad
-- Confidentiality: To prevent private information access and disclosure
-- Protect personal privacy or proprietary information
-- Integrity: To guard against improper information modification or destruction
-- Ensure information correct and unchanged
-- Message modification attack, man-in-the-middle attacks
-- Availability:  To ensure timely and reliable access to the information and the system
-- Ensure information and system accessible and useful when request
-- DoS attack, distributed DoS attack

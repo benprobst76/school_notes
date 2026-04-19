@@ -8,6 +8,7 @@ Assessments:
   - Quiz-3
 Week: 9
 ---
+
 # Introduction to Real-Time Systems
 Real-time systems are those whose correctness depends not only on the logical result of the computation but also on the **time at which the result is produced**.
 

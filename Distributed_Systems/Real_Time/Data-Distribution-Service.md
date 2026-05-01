@@ -81,7 +81,7 @@ module Radar {
 - partitions identified with a single string "WLH 5h floor"  
 - Flat namespace for partitions  
 - A publisher or subscriber can access the entire domain, or can join one or more partition.  
-- The entity can specify the entire name for a single partion, or it can specify a regular expression (e.g. "WLH*") to join all partitions that match.  
+- The entity can specify the entire name for a single partition, or it can specify a regular expression (e.g. "WLH*") to join all partitions that match.  
 - Can build hierarchical names (e.g. ECE.printers, ECE.data projectors) and use regular expressions. Not really structured as there is still a single name resolution step.
 ## Topics and Instances
 - **Keyless Topics**: Every message is a singleton and independent.

@@ -5,6 +5,9 @@ tags:
   - software-engineering
   - SPE
   - school-notes
+Assessments:
+  - Quiz-2
+Week: 4
 ---
 # Software Execution Model
 
